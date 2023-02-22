@@ -12,7 +12,7 @@ Go to the project repo on github and clone it to your local machine. Run the fol
 #### Running the server
 
 Run `npm run dev` to start the server locally;
-here are the endpoints available
+here are the endpoints available. Note that this is if you are using your port as 4000
 
 - get all blogs(GET METHOD): http://127.0.0.1:4000/api/v1/blogs
 - get one blog (GET METHOD): http://127.0.0.1:4000/api/v1/blogs/1
