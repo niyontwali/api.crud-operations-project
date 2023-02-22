@@ -1,4 +1,5 @@
 import { blogs } from "../model/dummy.js";
+import errorFunc from "../utils/errorFunc.js";
 
 class blogController {
   // CRUD (Create, Read, Update, Delete) Operation 
@@ -9,31 +10,35 @@ class blogController {
         data: blogs
       });
     } catch (error) {
-      console.log(error);
-      res.status(500).json({
-        message: "Server error"
-      });
+      const messageContent = error.message;
+      const status = 500;
+      errorFunc(res, messageContent, status);
     }
   }
 
   // get one blog
   static async getBlog(req, res) {
-    const { id } = req.params; // using ES6
-    const blogId = Number(id);
+    try {
+      const { id } = req.params; // using ES6
+      const blogId = Number(id);
 
-    const blog = blogs.find(b => b.id === blogId)
-    if (!blog) {
-      return res.status(404).json({
-        message: `Blog with id: ${id} was not found`
-      });
-    } else {
-      return res.status(200).json({
-        data: blog
-      });
+      const blog = blogs.find(b => b.id === blogId);
+      if (!blog) {
+        return res.status(404).json({
+          message: `Blog with id: ${id} was not found`
+        });
+      } else {
+        return res.status(200).json({
+          data: blog
+        });
+      }
+    } catch (error) {
+      const messageContent = error.message;
+      const status = 500;
+      errorFunc(res, messageContent, status);
     }
 
   }
-
   // create blog
   static async createBlog(req, res) {
     try {
@@ -46,10 +51,9 @@ class blogController {
         data: newBlog
       });
     } catch (error) {
-      console.log(error);
-      res.status(500).json({
-        message: "Server error"
-      });
+      const messageContent = error.message;
+      const status = 500;
+      errorFunc(res, messageContent, status);
     }
   }
 
@@ -80,10 +84,9 @@ class blogController {
       }
 
     } catch (error) {
-      console.log(error);
-      res.status(500).json({
-        message: "Server error"
-      });
+      const messageContent = error.message;
+      const status = 500;
+      errorFunc(res, messageContent, status);
     }
   }
 
@@ -107,10 +110,9 @@ class blogController {
         });
       }
     } catch (error) {
-      console.log(error);
-      res.status(500).json({
-        message: "Server error"
-      });
+      const messageContent = error.message;
+      const status = 500;
+      errorFunc(res, messageContent, status);
     }
   }
 
