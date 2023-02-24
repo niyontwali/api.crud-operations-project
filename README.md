@@ -116,3 +116,60 @@ export default const errorFunc = (res, messageContent, status) => {
   });
 };
 ```
+
+### Database
+
+A database is a collection of data that is organized and stored in a way that allows for efficient retrieval and manipulation of the data. Databases are used to store a wide range of information, from personal contact details to large-scale enterprise data.
+
+#### Kinds of Databases
+There are many different kinds of databases used in programming, each designed for specific purposes and use cases. In ATLP we shall focus on the following:
+
+1. Relational Databases: These are the most widely used type of databases, and store data in tables with rows and columns. They are based on a relational model, and are designed to be used with Structured Query Language (SQL) to retrieve and manipulate data. Example of this would be like mysql and postgres
+
+2. NoSQL Databases: These databases do not use a traditional table structure, and are designed to handle unstructured data. They are often used for large-scale distributed systems, and can be more flexible and scalable than relational databases. Example of this would be like MongoDB
+
+#### MongoDB
+MongoDB is a popular NoSQL database that uses a document-oriented data model. It is an open-source database that provides high scalability, availability, and performance. It stores data in a format called BSON, which stands for Binary JSON, and supports complex data structures like arrays and nested objects.
+
+#### ORM and ODM
+
+ORM (Object-Relational Mapping) and ODM (Object-Document Mapping) are tools used in software development to bridge the gap between object-oriented programming languages and relational or non-relational databases, respectively.
+
+The main reason for using ORM and ODM is to simplify the process of storing and retrieving data from a database in object-oriented programming. ORM and ODM allow developers to interact with the database using objects and classes instead of writing low-level SQL queries or database-specific code.
+
+Some of the benefits of using ORM and ODM include:
+
+Abstraction: ORM and ODM abstract the complexity of the database away from the developer, allowing them to focus on writing application logic without worrying about the details of the database implementation.
+
+Maintainability: By using ORM and ODM, developers can write code that is easier to maintain and modify over time, as the mapping between the application's objects and the database is centralized and can be modified independently of the application logic.
+
+Portability: ORM and ODM provide a layer of abstraction that makes it easier to switch between different databases or to use different types of databases, without changing the application code.
+
+Security: ORM and ODM can help prevent common security vulnerabilities, such as SQL injection, by automatically escaping user input and validating data.
+
+In summary, ORM and ODM are used to simplify the process of storing and retrieving data from a database in object-oriented programming, providing benefits such as abstraction, maintainability, portability, and security.
+
+#### Mongoose
+Mongoose is a Node.js library that provides a simple and elegant way to interact with MongoDB databases. It provides an object data modeling (ODM) layer that abstracts the underlying database interactions and allows you to define schemas for your data. Mongoose also provides validation, middleware, and other features that make working with MongoDB databases easier.
+
+##### To connect MongoDB and Mongoose to a Node/Express app, follow these steps:
+
+1. Configure MongoDB and Mongoose: First, you need to configure MongoDB and install Mongoose. You can configure MongoDB from the official website, set project, database and collections, and you can install Mongoose using npm by running the command `npm install mongoose`.
+2. Define a schema: Once you have a database, you need to define a schema for your data. A schema is a blueprint for your data that defines the structure, data types, and validation rules. You can define a schema in Mongoose using the Schema class.
+3. Create a model: After you have defined a schema, you can create a model that interacts with the database. A model is an instance of the mongoose.model class that maps to a collection in MongoDB.
+4. Connect to the database: To connect to the database, you need to use the mongoose.connect method. You can pass the database URL and options as arguments to this method.
+5. Use the model in your app: Once you have connected to the database, you can use the model in your app to perform CRUD (create, read, update, delete) operations on the data.
+
+#### Different methods to use with mongodb/mongoose
+
+1. Model.create()
+2. Model.findByIdAndUpdate(id, datatobeupdated, {new: true})
+3. Model.findOne({_id})
+4. Model.findByIdAndDelete(id)
+5. Model.find()
+
+**Note**: The rest you can now refer to the codebase.
+
+
+
+
