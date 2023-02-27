@@ -170,6 +170,41 @@ Mongoose is a Node.js library that provides a simple and elegant way to interact
 
 **Note**: The rest you can now refer to the codebase.
 
+#### Authentication and Authorization
+
+Authentication and authorization are two important concepts in web applications that are often implemented in conjunction with each other.
+
+Authentication is the process of verifying the identity of a user, typically through a username and password combination. It confirms that the user is who they claim to be and grants access to protected resources. In an Express app, authentication can be implemented using various libraries such as Passport, jsonwebtoken, and bcrypt.
+
+Authorization, on the other hand, is the process of determining what resources a user is allowed to access based on their authenticated identity. It involves checking the user's permissions or roles and deciding whether or not they have the necessary privileges to perform a certain action. In an Express app, authorization can be implemented using middleware functions that check the user's permissions before allowing access to certain routes or resources.
+
+### bcrypt
+Bcrypt is a popular library for hashing passwords in web applications. It provides a secure way to store passwords by hashing them with a salt, making it difficult for attackers to obtain the original password even if the hashed value is compromised. Bcrypt is commonly used in Express apps to hash and verify passwords.
+
+Here are some key terms and methods that are mostly used with bcrypt:
+
+- Hashing: Bcrypt uses a hash function to convert a plaintext password into a hash value that can be stored in a database. Hashing is a one-way process, meaning that the original plaintext password cannot be obtained from the hash value.
+
+- Salt: A salt is a random string of characters that is added to the plaintext password before it is hashed. The salt helps to make the hash value more unique and difficult to crack, even if the same password is used for multiple users.
+
+- Salt rounds: Bcrypt allows you to configure the number of times the password is hashed with the salt, known as the salt rounds. A higher number of salt rounds makes the hashing process more secure, but also slower.
+
+- bcrypt.hash(): This method takes a plaintext password and a salt rounds value as arguments and returns a hashed value that can be stored in a database.
+
+- bcrypt.compare(): This method takes a plaintext password and a hashed password as arguments and returns a boolean value indicating whether or not the passwords match. It first hashes the plaintext password with the same salt and number of rounds as the hashed password, and then compares the resulting hash values.
+
+#### JWT
+JWT (JSON Web Token) is a popular method of implementing authentication in web applications. A JWT is a compact, URL-safe means of representing claims to be transferred between two parties. In the context of authentication, a JWT is usually issued by an authentication server upon successful authentication of a user, and then sent to the client as a response to the authentication request. The client then stores the JWT and sends it with subsequent requests to the server to prove its identity.
+
+Here are some key terms and methods that are used with JWT in Express apps:
+
+- JWT (JSON Web Token): JWT is a standard for creating secure tokens that can be used for authentication and authorization. A JWT consists of three parts: a header, a payload, and a signature.
+
+- jwt.sign(): This method is used to create a JWT token. It takes a payload and a secret key as arguments, and optionally an options object that can be used to set the expiration time or other options.
+
+- jwt.verify(): This method is used to verify a JWT token. It takes a token and a secret key as arguments, and returns the decoded payload if the token is valid.
+
+
 
 
 
